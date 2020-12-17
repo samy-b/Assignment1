@@ -1,0 +1,47 @@
+user_info = []
+
+user_input =int(input(
+    "(1) Add New Address\n"
+    "(2) Change Existing Address\n"
+    "(3) View All Addresses where Last Name Starts With Letter\n"
+    "(4) View All Addresses in Database\n"
+    "(5) Quit\n"
+    "Please Enter A Command:"))
+while user_input !=5: #Relates the input from the user and what operation in the menu. i.e. If the user enters 3 then pull up option 3.
+      if user_input ==1: #If the user input is equal to 1 then run that line, if not check again.
+         firstName = str(input("Enter a first name:"))
+         surName = str(input("Enter a surname"))
+         if firstName + surName =='':
+            print("Invalid, please enter Name in Again")# If the user has not entered a firstname or lastname then it will print line 14. If the user has entered the correct data then the program will allow them to add an address and other relative attributes.
+         else:
+              streetName = input("Please enter street number and name:")
+              postTown = input("Please enter a Town/City")
+              postCode = input("Please enter a Postcode")
+              phoneCode = input ("Please the area code for the phone number")
+              phoneNumber = int(input("Please enter a Phone Number"))
+              user_info.append([firstName, surName, streetName, postTown, postCode, phoneCode, phoneNumber])#Adds/Edits the entires of the text document
+
+
+
+      elif user_input ==2:
+         print("change address")
+         surNamegetinfo = input("Please enter Last Name of the person you would like to change their existing address")
+         i = 0
+#This searches for the lastname that the user has entered. if the user has enetered
+#a last name that does not exist then the program will print "Lastname not found",if the user has entered a valid lastname
+#then the program will print the corresponding information related to that surname.
+         totalInfo = len(user_info)
+         current_line=0
+
+         while current_line < totalInfo:
+               if user_info[current_line][1] == surNamegetinfo:
+                  streetName = input("The current street number and name is ",user_info[current_line][2])
+                  postTown = input("The current Town/City is",user_info[current_line][3])
+                  postCode = input("The current Postcode is",user_info[current_line][4])
+                  phoneCode = input ("The current area code for the phone number is",user_info[current_line][5])
+                  phoneNumber = int(input("The current Phone Number is",user_info[current_line][5]))
+                  user_info[current_line]=[firstName, surName, streetName, postTown, postCode, phoneCode, phoneNumber]
+
+      elif user_input ==3:
+         firstletter = input("Please enter the first letter of their Surname")
+         if firstletter[0] ==
